@@ -9,6 +9,8 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CrimeStatsComponent } from './crime-stats/crime-stats.component';
 
+import { CrimeRecordService } from './crime-record/crime-record.service';
+
 @NgModule({
   declarations: [
     AppComponent, 
@@ -22,7 +24,7 @@ import { CrimeStatsComponent } from './crime-stats/crime-stats.component';
     ChartsModule,
     routing
   ],
-  providers: [],
+  providers: [CrimeRecordService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
