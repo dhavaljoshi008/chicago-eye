@@ -6,10 +6,13 @@ import { ChartsModule } from 'ng2-charts';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { CrimeStatsComponent } from './crime-stats/crime-stats.component';
 
 @NgModule({
   declarations: [
-    AppComponent, DashboardComponent
+    AppComponent, 
+    DashboardComponent,
+    CrimeStatsComponent 
   ],
   imports: [
     BrowserModule,
