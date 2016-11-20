@@ -8,6 +8,7 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CrimeStatsComponent } from './crime-stats/crime-stats.component';
+import { ArrestComponent } from './arrest-component/arrest.component';
 
 import { CrimeRecordService } from './crime-record/crime-record.service';
 
@@ -15,7 +16,8 @@ import { CrimeRecordService } from './crime-record/crime-record.service';
   declarations: [
     AppComponent, 
     DashboardComponent,
-    CrimeStatsComponent 
+    CrimeStatsComponent,
+    ArrestComponent 
   ],
   imports: [
     BrowserModule,

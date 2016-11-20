@@ -4,6 +4,7 @@ import { CrimeRecord } from '../crime-record/crime-record';
 import { CrimeRecordService } from '../crime-record/crime-record.service';
 
 import { ArrestCount } from '../crime-record/arrest-count';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
     selector: 'dashboard',
@@ -14,14 +15,22 @@ import { ArrestCount } from '../crime-record/arrest-count';
 export class DashboardComponent implements OnInit {
 
     crimeRecords: CrimeRecord[];
+    arrestCount: ArrestCount;
 
     constructor(private _crimeRecordService: CrimeRecordService) {
 
     }
 
     ngOnInit() {
+        this.getCrimeRecords();
+    }
+
+    getCrimeRecords() {
         this._crimeRecordService.getCrimeRecords()
-        .subscribe(crimeRecords => this.crimeRecords = crimeRecords, error => console.log(error));
+        .subscribe(crimeRecords => { 
+            this.crimeRecords = crimeRecords
+            this.arrestCount = this._crimeRecordService.getArrestCount(this.crimeRecords)
+            }, error => console.log(error));
     }
 
     printRecords() {
@@ -35,11 +44,5 @@ export class DashboardComponent implements OnInit {
             console.log('Primary Description: ' + crimeRecord._primary_decsription);
             console.log('Date Of Occurence: ' + crimeRecord.date_of_occurrence);
         }
-
-        let ac = this._crimeRecordService.getArrestCount(this.crimeRecords);
-        let y = ac.yes;
-        let n = ac.no;
-        console.log('Arrest Y = ' + y);
-        console.log('Arrest N = ' + n);
     }
 }
