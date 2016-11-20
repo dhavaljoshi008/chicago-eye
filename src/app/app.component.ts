@@ -14,7 +14,8 @@ export class AppComponent {
   
   constructor() {
     this.appTitle = 'Chicago Eye';
-    this.menuItems = [ { caption: 'Dashboard', link: '#' },
+    this.menuItems = [ { caption: 'Dashboard', link: '/dashboard' },
+                       { caption: 'Crime Stats', link: '/crime-stats'}
                      ];
   }
 }
