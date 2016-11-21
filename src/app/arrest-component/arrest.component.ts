@@ -12,24 +12,35 @@ export class ArrestComponent implements OnChanges {
     
   @Input() arrestCount: ArrestCount;  
 
-  // Doughnut
-  doughnutChartLabels:string[];
-  doughnutChartData:number[];
-  doughnutChartType:string;
+    barChartOptions:any;
+    barChartLabels:string[];
+    barChartType:string;
+    barChartLegend:boolean;
+    barChartData:any[];
   
   constructor() {
-      this.doughnutChartLabels = ['Arrest', 'No Arrest'];
-      this.doughnutChartData = [0,0];
-      this.doughnutChartType = 'doughnut';
+    this.barChartOptions = { scaleShowVerticalLines: false, responsive: true };
+    this.barChartLabels = [];
+    this.barChartType = 'bar';
+    this.barChartLegend = true;
+    this.barChartData = [{data: [], label: 'Arrest'}];
   }
 
-  ngOnChanges() {
-
-      // Check whether arrestCount has been initialized. 
-      if(this.arrestCount !== undefined) {
-          // console.log(this.arrestCount);
-          this.doughnutChartData = [this.arrestCount.yes, this.arrestCount.no];
-      }
+  ngOnChanges() { 
+    let labels: string[] = [];
+    let dataValues: number[]  = [];
+    // Check whether arrestCount has been initialized
+    if(this.arrestCount !== undefined) {
+        console.log(this.arrestCount);
+        for(let crime in this.arrestCount) {
+            if(this.arrestCount.hasOwnProperty(crime)) {
+                labels.push(''+crime);
+                dataValues.push(this.arrestCount[crime]);
+            }
+        }
+    this.barChartData = [{data: dataValues, label: 'Arrest'}];
+    this.barChartLabels = labels;
+    }
   }
   
   printArrest() {

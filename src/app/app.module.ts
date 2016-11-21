@@ -9,6 +9,7 @@ import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CrimeStatsComponent } from './crime-stats/crime-stats.component';
 import { ArrestComponent } from './arrest-component/arrest.component';
+import { CrimeTypesComponent } from './crime-types-component/crime-types.component';
 
 import { CrimeRecordService } from './crime-record/crime-record.service';
 
@@ -17,7 +18,8 @@ import { CrimeRecordService } from './crime-record/crime-record.service';
     AppComponent, 
     DashboardComponent,
     CrimeStatsComponent,
-    ArrestComponent 
+    ArrestComponent, 
+    CrimeTypesComponent
   ],
   imports: [
     BrowserModule,
