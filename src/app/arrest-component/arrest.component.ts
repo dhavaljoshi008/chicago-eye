@@ -23,7 +23,7 @@ export class ArrestComponent implements OnChanges {
     this.barChartLabels = [];
     this.barChartType = 'bar';
     this.barChartLegend = true;
-    this.barChartData = [{data: [], label: 'Arrest'}];
+    this.barChartData = [{data: [], label: ''}];
   }
 
   ngOnChanges() { 

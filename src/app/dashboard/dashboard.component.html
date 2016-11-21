@@ -1,8 +1,10 @@
 <div class="dashboard">
-    <h1>Dashboard</h1>
-    <button (click)="printRecords()" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-  Print Records
-</button>
-<arrest [arrestCount]="arrestCount"></arrest>
-<crime-types [crimeTypeCount]="crimeTypeCount"></crime-types>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+            <arrest [arrestCount]="arrestCount"></arrest>
+         </div>
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+            <crime-types [crimeTypeCount]="crimeTypeCount"></crime-types>
+        </div>
+    </div>
 </div>

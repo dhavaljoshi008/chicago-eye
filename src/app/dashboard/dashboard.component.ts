@@ -36,17 +36,4 @@ export class DashboardComponent implements OnInit {
             this.crimeTypeCount = this._crimeRecordService.getCrimeTypeCount(this.crimeRecords);
             }, error => console.log(error));
     }
-
-    printRecords() {
-        let i = 0;
-        for(let crimeRecord of this.crimeRecords) {
-            i++;
-            console.log(i)
-            console.log('Case: ' + crimeRecord.case_);
-            console.log('IUCR: ' + crimeRecord._iucr);
-            console.log('Arrest: ' + crimeRecord.arrest);
-            console.log('Primary Description: ' + crimeRecord._primary_decsription);
-            console.log('Date Of Occurence: ' + crimeRecord.date_of_occurrence);
-        }
-    }
 }
