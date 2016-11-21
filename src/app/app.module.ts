@@ -8,12 +8,18 @@ import { routing } from './app.routing';
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { CrimeStatsComponent } from './crime-stats/crime-stats.component';
+import { ArrestComponent } from './arrest-component/arrest.component';
+import { CrimeTypesComponent } from './crime-types-component/crime-types.component';
+
+import { CrimeRecordService } from './crime-record/crime-record.service';
 
 @NgModule({
   declarations: [
     AppComponent, 
     DashboardComponent,
-    CrimeStatsComponent 
+    CrimeStatsComponent,
+    ArrestComponent, 
+    CrimeTypesComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +28,7 @@ import { CrimeStatsComponent } from './crime-stats/crime-stats.component';
     ChartsModule,
     routing
   ],
-  providers: [],
+  providers: [CrimeRecordService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
