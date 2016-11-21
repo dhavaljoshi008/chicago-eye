@@ -1,0 +1,26 @@
+<div class="dashboard">
+    <h5>City of Chicago -  Data report for <= {{ limit }} most recent crime records.</h5>
+    <button (click)="getCrimeRecords(10000)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <=  10,000
+    </button>
+    <button (click)="getCrimeRecords(50000)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <= 50,0000
+    </button>
+    <button (click)="getCrimeRecords(100000)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <= 100,000
+    </button>
+    <button (click)="getCrimeRecords(200000)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <= 200,000
+    </button>
+    <button (click)="getCrimeRecords(300000)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <= 300,000
+    </button>
+    <div class="mdl-grid">
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+            <arrest [arrestCount]="arrestCount"></arrest>
+         </div>
+        <div class="mdl-cell mdl-cell--6-col mdl-cell--8-col-tablet mdl-cell--4-col-phone">
+            <crime-types [crimeTypeCount]="crimeTypeCount"></crime-types>
+        </div>
+    </div>
+</div>

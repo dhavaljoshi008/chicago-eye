@@ -1,0 +1,4 @@
+.mdl-layout__content {
+    overflow-x: auto;
+    overflow-y: auto;
+}

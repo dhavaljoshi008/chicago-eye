@@ -1,0 +1,36 @@
+<div class="crime-stats">
+        <h5>City of Chicago -  <= {{ limit }} most recent crime records.</h5>
+    <button (click)="getCrimeRecords(10000)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <=  10,000
+    </button>
+    <button (click)="getCrimeRecords(50000)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <= 50,0000
+    </button>
+    <button (click)="getCrimeRecords(100000)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <= 100,000
+    </button>
+    <button (click)="getCrimeRecords(200000)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <= 200,000
+    </button>
+    <button (click)="getCrimeRecords(300000)" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+        <= 300,000
+    </button>
+    <table class="mdl-data-table mdl-js-data-table mdl-shadow--2dp">
+        <thead>
+            <tr class="heading-row">
+                <th class="mdl-data-table__cell--non-numeric" *ngFor="let attribute of tableAttributes">{{ attribute }}</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let crimeRecord of crimeRecords | async; let i = index">
+            <td class="mdl-data-table__cell--non-numeric crime-index">{{ i+1 }}.</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ crimeRecord.case_ }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ crimeRecord._iucr }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ crimeRecord.arrest }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ crimeRecord._primary_decsription }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ crimeRecord._secondary_description }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ crimeRecord.date_of_occurrence }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
