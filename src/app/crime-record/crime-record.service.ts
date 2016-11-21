@@ -14,12 +14,12 @@ export class CrimeRecordService {
 
     private _crimeRecordsUrl: string;
     constructor(private _http: Http) {
-        this._crimeRecordsUrl = null; // Set the url.
+        this._crimeRecordsUrl = 'https://data.cityofchicago.org/resource/3uz7-d32j.json?$select=case_,_iucr,arrest,_primary_decsription,date_of_occurrence&$order=date_of_occurrence DESC&$limit='; // Set the url.
     }
 
     // Get crime records
     getCrimeRecords(limit?: number) {
-        return this._http.get(this._crimeRecordsUrl)
+        return this._http.get(this._crimeRecordsUrl + limit)
                 .map((response: Response) => <CrimeRecord[]>response.json())
                 .do(data => console.log(data))
                 .catch(this.handleError);

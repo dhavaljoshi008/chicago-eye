@@ -19,17 +19,22 @@ export class DashboardComponent implements OnInit {
     crimeRecords: CrimeRecord[];
     arrestCount: ArrestCount;
     crimeTypeCount: CrimeTypeCount;
+    limit: number;
 
     constructor(private _crimeRecordService: CrimeRecordService) {
-
+        this.crimeRecords = null;
+        this.arrestCount = null;
+        this.crimeTypeCount = null;
+        this.limit = 1000; // Default limit.
     }
 
     ngOnInit() {
-        this.getCrimeRecords();
+        this.getCrimeRecords(this.limit);
     }
 
-    getCrimeRecords() {
-        this._crimeRecordService.getCrimeRecords()
+    getCrimeRecords(limit: number) {
+        this.limit = limit;
+        this._crimeRecordService.getCrimeRecords(limit)
         .subscribe(crimeRecords => { 
             this.crimeRecords = crimeRecords;
             this.arrestCount = this._crimeRecordService.getArrestCount(this.crimeRecords);
